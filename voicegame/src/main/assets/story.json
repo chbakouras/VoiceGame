@@ -1,0 +1,100 @@
+[
+  {
+    "id":1,
+    "path":"rooms/lobby.json",
+    "items":[
+      {
+        "path":"items/armor/helmet.json"
+      },
+      {
+        "path": "items/consumables/potion.json"
+      }
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+        "north":2,
+        "east":3,
+        "west":4
+      }
+    ],
+    "doors":[
+      {
+        "path":"doors/door.json",
+        "direction": "west"
+      },
+      {
+        "path":"doors/door2.json",
+        "direction": "east"
+      }
+    ]
+  },
+  {
+    "id":2,
+    "path":"rooms/banquethall.json",
+    "items":[
+      {
+        "path":"items/puzzle/key.json"
+      }
+    ],
+    "enemies":[
+      {
+        "path":"enemies/combatButler.json"
+      }
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":3,
+    "path":"rooms/kitchen.json",
+    "items":[
+
+    ],
+    "enemies":[
+      {
+        "path":"enemies/bandit.json"
+      }
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":4,
+    "path":"rooms/storeroom.json",
+    "items":[
+      {
+        "path":"items/containers/chest.json"
+      },
+      {
+        "path":"items/weapons/sword.json"
+      },
+      {
+        "path":"items/weapons/axe.json"
+      }
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  }
+]

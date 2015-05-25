@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+    <EditText
+            android:id="@+id/etTextHint"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/etSearchHint"/>
+
+    <EditText
+            android:id="@+id/nameInputEditText"
+            android:gravity="top"
+            android:inputType="text"
+            android:lines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSend"/>
+
+    <Button
+            android:id="@+id/btSpeak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="speak"
+            android:text="@string/btSpeak"
+            tools:context=".MainActivity" />
+
+    <Button
+            android:id="@+id/btStartGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="start"
+            android:text="@string/btStartGame"
+            tools:context=".MainActivity" />
+    <Button
+            android:id="@+id/btLoadGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="load"
+            android:text="@string/btLoadGame"
+            tools:context=".MainActivity" />
+    <Button
+            android:id="@+id/btExitGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="exit"
+            android:text="@string/btExitGame"
+            tools:context=".MainActivity" />
+
+    <TextView
+            android:id="@+id/tvTextMatches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    <TextView
+            android:id="@+id/tvOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>
