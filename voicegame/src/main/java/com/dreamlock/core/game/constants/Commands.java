@@ -21,7 +21,11 @@ public enum Commands {
         commands.put("qq", new Quit());
         commands.put("help", new Help());
         commands.put("take", new PickUp());
+        commands.put("pick", new PickUp());
+        commands.put("add", new PickUp());
+        commands.put("pick up", new PickUp());
         commands.put("drop", new Drop());
+        commands.put("remove", new Drop());
         commands.put("open", new Open());
         commands.put("inventory", new ShowInventory());
         commands.put("i", new ShowInventory());
@@ -33,7 +37,10 @@ public enum Commands {
         commands.put("unequip", new Unequip());
         commands.put("reload", new Reload());
         commands.put("use", new Use());
+        commands.put("drink", new Use());
         commands.put("flee", new Flee());
+        commands.put("run", new Flee());
+        commands.put("history", new History());
     }
 
     private final Map<String, ICommand> commands;

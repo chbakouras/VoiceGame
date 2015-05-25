@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.speech.RecognizerIntent;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,17 +22,13 @@ import com.dreamlock.core.game.models.Room;
 import com.dreamlock.core.handlers.CommandHandler;
 import com.dreamlock.core.handlers.ErrorHandler;
 import com.dreamlock.core.handlers.IHandler;
-import com.dreamlock.core.messageSystem.CommandMessages;
-import com.dreamlock.core.messageSystem.GameMessages;
-import com.dreamlock.core.messageSystem.MessageHandler;
+import com.dreamlock.core.messageSystem.*;
 import com.dreamlock.core.parser.Lexer;
 import com.dreamlock.core.parser.Parser;
 import com.dreamlock.core.parser.models.Lexeme;
 import com.google.gson.JsonObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +50,7 @@ public class MainActivity extends Activity {
     Lexer lexer;
     Parser parser;
     HistoryController historyController;
-    MessageHandler messageHandler;
+    IMessageHandler messageHandler;
     IGameContext gameContext;
     Player player;
 
@@ -134,7 +128,7 @@ public class MainActivity extends Activity {
         // Setup message handler
         GameMessages gameMessages = new GameMessages(player, rooms);
         CommandMessages commandMessages = CommandMessages.INSTANCE;
-        messageHandler = new MessageHandler();
+        messageHandler = new AndroidMessageHandler();
         messageHandler.register(gameMessages.getGameMessages());
         messageHandler.register(commandMessages.getCommandMessages());
         gameContext.setMessageHandler(messageHandler);
@@ -226,8 +220,9 @@ public class MainActivity extends Activity {
                             historyController.register(line);
                             if (historyController.handle() != null) {
                                 messageIds = historyController.handle();
-                                messageHandler.print(messageIds);
-
+                                textMatchTextView.setVisibility(View.VISIBLE);
+                                textMatchTextView.setText(line);
+                                outputTextView.setText(messageHandler.printAndroid(messageIds));
                             }
                             handler = new CommandHandler(output, gameContext);
                         } else {
@@ -235,7 +230,9 @@ public class MainActivity extends Activity {
                         }
 
                         messageIds = handler.handle();
-                        outputTextView.setText(messageHandler.print(messageIds));
+                        textMatchTextView.setVisibility(View.VISIBLE);
+                        textMatchTextView.setText(line);
+                        outputTextView.setText(messageHandler.printAndroid(messageIds));
 
                     }
 

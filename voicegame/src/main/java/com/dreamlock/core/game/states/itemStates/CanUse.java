@@ -21,6 +21,7 @@ public class CanUse implements IState {
             default:
                 break;
         }
+        context.getPlayer().getInventory().removeItem(item);
         return 10006;
     }
 }

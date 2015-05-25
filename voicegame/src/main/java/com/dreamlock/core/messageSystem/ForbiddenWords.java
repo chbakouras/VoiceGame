@@ -2,7 +2,7 @@ package com.dreamlock.core.messageSystem;
 
 public enum ForbiddenWords {
 
-    asshole,
+    ass,
     fuck,
     bastard,
     bitch,

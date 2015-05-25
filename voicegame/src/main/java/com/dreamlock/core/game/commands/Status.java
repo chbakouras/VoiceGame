@@ -14,15 +14,8 @@ public class Status implements ICommand{
         List<Integer> output = new ArrayList<>();
 
         output.add(10005);
-        output.add(gameContext.getPlayer().getHealth());
-        output.add(gameContext.getPlayer().getAttack());
-        output.add(gameContext.getPlayer().getDefense());
-        output.add(gameContext.getPlayer().getStamina());
-        output.add(gameContext.getPlayer().getStrength());
-        output.add(gameContext.getPlayer().getAgility());
-
+        output.add(9999);
         return output;
-
     }
 
     @Override

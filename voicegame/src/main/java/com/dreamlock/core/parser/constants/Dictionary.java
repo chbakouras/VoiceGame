@@ -25,19 +25,25 @@ public enum Dictionary {
         dictionary.put("reload", new Lexeme(1, "reload", TokenType.VERB, 3000));
         dictionary.put("status", new Lexeme(1, "status", TokenType.VERB, 3000));
         dictionary.put("flee", new Lexeme(1, "flee", TokenType.VERB, 3000));
+        dictionary.put("run", new Lexeme(1, "run", TokenType.VERB, 3000));
+        dictionary.put("history", new Lexeme(1, "history", TokenType.VERB, 3000));
 
         dictionary.put("go", new Lexeme(2, "go", TokenType.VERB, 3000));
         dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB, 3000));
 
         dictionary.put("use", new Lexeme(3, "use", TokenType.VERB, 3000));
+        dictionary.put("drink", new Lexeme(3, "drink", TokenType.VERB, 3000));
         dictionary.put("equip", new Lexeme(3, "equip", TokenType.VERB, 3000));
         dictionary.put("unequip", new Lexeme(3, "unequip", TokenType.VERB, 3000));
         dictionary.put("examine", new Lexeme(3, "examine", TokenType.VERB, 3000));
         dictionary.put("take", new Lexeme(3, "take", TokenType.VERB, 3000));
+        dictionary.put("pick", new Lexeme(3, "pick", TokenType.VERB, 3000));
+        dictionary.put("pick up", new Lexeme(3, "pick up", TokenType.VERB, 3000));
+        dictionary.put("add", new Lexeme(3, "add", TokenType.VERB, 3000));
         dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB, 3000));
+        dictionary.put("remove", new Lexeme(3, "remove", TokenType.VERB, 3000));
         dictionary.put("inspect", new Lexeme(3, "inspect", TokenType.VERB, 3000));
         dictionary.put("attack", new Lexeme(3, "attack", TokenType.VERB, 3000));
-
 
         dictionary.put("open", new Lexeme(4, "open", TokenType.VERB, 3000));
 

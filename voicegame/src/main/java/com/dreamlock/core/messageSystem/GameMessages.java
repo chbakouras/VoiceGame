@@ -3,7 +3,10 @@ package com.dreamlock.core.messageSystem;
 import com.dreamlock.core.game.jsonParser.items.Consumable;
 import com.dreamlock.core.game.jsonParser.items.Container;
 import com.dreamlock.core.game.jsonParser.items.Item;
-import com.dreamlock.core.game.models.*;
+import com.dreamlock.core.game.models.Door;
+import com.dreamlock.core.game.models.Enemy;
+import com.dreamlock.core.game.models.Player;
+import com.dreamlock.core.game.models.Room;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +14,7 @@ import java.util.Map;
 public class GameMessages {
     private Map<Integer,IMessage> gameMessages;
 
-    public GameMessages(Player gameContext, Map<Integer, Room> rooms) {
+    public GameMessages(Player player, Map<Integer, Room> rooms) {
         gameMessages = new HashMap<>();
         for (int i = 1 ; i < rooms.size() ; i++ ) {
             Room room = rooms.get(i);
@@ -48,6 +51,7 @@ public class GameMessages {
                 gameMessages.put(door.getId(), new NDMessage(door.getName(), door.getDescription()));
 
             }
+            gameMessages.put(player.getId(), new NDSMessage(player.getName(), "", player.getPlayerStatsMap()));
         }
     }
 

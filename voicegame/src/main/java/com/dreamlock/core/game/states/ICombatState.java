@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 
 public interface ICombatState extends Serializable {
-    Integer doAction(IGameContext context);
-    Integer doAction(IGameContext context, Combatant current, Combatant enemy);
+    Integer doAction (IGameContext context);
+    Integer doAction (IGameContext context, Combatant current, Combatant enemy);
 }

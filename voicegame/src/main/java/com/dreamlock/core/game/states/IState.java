@@ -6,6 +6,6 @@ import com.dreamlock.core.game.jsonParser.items.Item;
 import java.io.Serializable;
 
 public interface IState extends Serializable {
-    Integer doAction(IGameContext context);
-    Integer doAction(IGameContext context, Item item);
+    Integer doAction (IGameContext context);
+    Integer doAction (IGameContext context, Item item);
 }

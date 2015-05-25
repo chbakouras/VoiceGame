@@ -16,9 +16,10 @@ import java.util.Map;
 
 public class Player extends Combatant implements Serializable {
     private Inventory inventory;
-
+    private int id;
     public Player(String name, Inventory inventory) {
         this.name = name;
+        this.id = 9999;
         this.inventory = inventory;
         this.setStamina(1);
         this.setStrength(1);
@@ -33,7 +34,11 @@ public class Player extends Combatant implements Serializable {
 
         chest = null;
         head = null;
+        hands = null;
+        legs = null;
+        feet = null;
         main_hand = null;
+        off_hand = null;
     }
 
     public Inventory getInventory() {
@@ -56,9 +61,29 @@ public class Player extends Combatant implements Serializable {
                     return chest.getValue();
                 else
                     return null;
+            case HANDS:
+                if(hands != null)
+                    return hands.getValue();
+                else
+                    return null;
+            case LEGS:
+                if(legs != null)
+                    return legs.getValue();
+                else
+                    return null;
+            case FEET:
+                if(feet != null)
+                    return feet.getValue();
+                else
+                    return null;
             case MAIN_HAND:
                 if(main_hand != null)
                     return main_hand.getValue();
+                else
+                    return null;
+            case OFF_HAND:
+                if(off_hand != null)
+                    return off_hand.getValue();
                 else
                     return null;
             default:
@@ -74,8 +99,20 @@ public class Player extends Combatant implements Serializable {
             case CHEST:
                 chest = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
+            case HANDS:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
+            case LEGS:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
+            case FEET:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
             case MAIN_HAND:
                 main_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
+                break;
+            case OFF_HAND:
+                off_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
                 break;
         }
     }
@@ -88,8 +125,20 @@ public class Player extends Combatant implements Serializable {
             case CHEST:
                 chest = null;
                 break;
+            case HANDS:
+                hands = null;
+                break;
+            case LEGS:
+                legs = null;
+                break;
+            case FEET:
+                feet = null;
+                break;
             case MAIN_HAND:
                 main_hand = null;
+                break;
+            case OFF_HAND:
+                off_hand = null;
                 break;
         }
     }
@@ -114,5 +163,9 @@ public class Player extends Combatant implements Serializable {
         strength += (int) stats.get(Stats.STRENGTH);
         agility += (int) stats.get(Stats.AGILITY);
         calculateStats();
+    }
+
+    public int getId() {
+        return id;
     }
 }

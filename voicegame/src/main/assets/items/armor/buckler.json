@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":140,
   "type":"Armor",
-  "name":"Iron Buckler",
-  "description":"A small iron buckler",
-  "defense":2,
-  "stamina":2,
-  "strength":2,
-  "agility":2,
+  "name":"Wooden Buckler",
+  "description":"A buckler made of wood",
+  "defense":3,
+  "stamina":3,
+  "strength":0,
+  "agility":1,
   "equipmentSlot":"OFF_HAND"
 }
