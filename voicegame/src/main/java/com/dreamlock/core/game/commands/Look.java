@@ -17,8 +17,8 @@ public class Look implements ICommand  {
         Room room = gameContext.getCurrentRoom();
 
 
-        output.add(10002);
-        output.add(10003);
+//        output.add(10002);
+//        output.add(10003);
         output.add(room.getId());
 
         // Print doors

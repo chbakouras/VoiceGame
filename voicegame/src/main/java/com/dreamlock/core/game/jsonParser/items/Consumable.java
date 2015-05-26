@@ -10,12 +10,14 @@ import java.util.HashMap;
 
 public class Consumable extends Item {
     private String effect;
+    private String state;
 
     public Consumable(String jsonItem) {
         Gson gson = new Gson();
         ConsumableDTO consumableDTO = gson.fromJson(jsonItem, ConsumableDTO.class);
         id = consumableDTO.getId();
         type = consumableDTO.getType();
+        state = consumableDTO.getState();
         name = consumableDTO.getName();
         description = consumableDTO.getDescription();
         effect = consumableDTO.getEffect();
@@ -33,8 +35,21 @@ public class Consumable extends Item {
         states.put(ActionState.PICK_UP, new CanPickUp());
         states.put(ActionState.DROP, new CanDrop());
         states.put(ActionState.EQUIP, new CanNotEquip());
-        states.put(ActionState.USE, new CanUse());
+        states.put(ActionState.USE, new CanNotUse());
         states.put(ActionState.OPEN, new CanNotOpen());
+
+        if (state.equals("Drink")) {
+            states.put(ActionState.EAT, new CanNotEat());
+            states.put(ActionState.DRINK, new CanDrink());
+        }
+        if (state.equals("Food")) {
+            states.put(ActionState.EAT, new CanEat());
+            states.put(ActionState.DRINK, new CanNotDrink());
+        }
+    }
+
+    public String getState() {
+        return state;
     }
 
     public String getEffect() {

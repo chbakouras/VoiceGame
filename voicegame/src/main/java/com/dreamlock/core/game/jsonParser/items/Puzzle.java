@@ -25,5 +25,7 @@ public class Puzzle extends Item {
         states.put(ActionState.EQUIP, new CanNotEquip());
         states.put(ActionState.USE, new CanUse());
         states.put(ActionState.OPEN, new CanNotOpen());
+        states.put(ActionState.DRINK, new CanNotDrink());
+        states.put(ActionState.EAT, new CanNotEat());
     }
 }
