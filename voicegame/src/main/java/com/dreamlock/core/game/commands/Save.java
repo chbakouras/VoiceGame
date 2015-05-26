@@ -1,5 +1,6 @@
 package com.dreamlock.core.game.commands;
 
+import android.os.Environment;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.Word;
 
@@ -16,7 +17,8 @@ public class Save implements ICommand{
         List<Integer> output = new ArrayList<>();
         try {
             String saveFileName = gameContext.getPlayer().getName();
-            File file = new File("saves/"+saveFileName+".dat");
+            String filePath = Environment.getExternalStorageDirectory() + "/VoiceGame/saves/"+saveFileName+".dat";
+            File file = new File(filePath);
             if (!file.exists()) {
                 file.getParentFile().mkdirs();
             }
