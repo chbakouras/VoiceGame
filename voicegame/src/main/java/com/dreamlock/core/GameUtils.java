@@ -1,6 +1,7 @@
 package com.dreamlock.core;
 
 import android.content.Context;
+import android.os.Environment;
 import com.dreamlock.core.game.GameContext;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.jsonParser.JsonParser;
@@ -42,7 +43,7 @@ public class GameUtils {
     }
 
     public IGameContext LoadStory() {
-        File folder = new File("saves/");
+        File folder = new File(Environment.getExternalStorageDirectory()+"/VoiceGame/saves/");
         File[] listOfFiles = folder.listFiles();
         if (!folder.exists() || listOfFiles.length == 0) {
             System.out.println("There are no saved games to load from!!");
