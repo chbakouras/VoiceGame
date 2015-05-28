@@ -1,10 +1,15 @@
-package com.dreamlock.core.messageSystem;
+package com.dreamlock.core.messageSystem.constants;
+
+import com.dreamlock.core.messageSystem.IMessage;
+import com.dreamlock.core.messageSystem.NDEMessage;
+import com.dreamlock.core.messageSystem.NDMessage;
+import com.dreamlock.core.messageSystem.NDSMessage;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public enum CommandMessages {
+public enum CommandMessages implements ICommandMessages{
 
     INSTANCE;
 
@@ -182,14 +187,17 @@ public enum CommandMessages {
 
     private final Map<Integer, IMessage> commandMessages;
 
+    @Override
     public IMessage getCommandMessage(Integer messageId) {
         return this.commandMessages.get(messageId);
     }
 
+    @Override
     public Map<Integer, IMessage> getCommandMessages() {
         return commandMessages;
     }
 
+    @Override
     public Set<Integer> getDefinedCommandMessages() {
         return this.commandMessages.keySet();
     }

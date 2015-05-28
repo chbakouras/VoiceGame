@@ -10,7 +10,10 @@ import android.speech.RecognizerIntent;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.dreamlock.core.GameUtils;
 import com.dreamlock.core.HistoryController;
 import com.dreamlock.core.game.GameContext;
@@ -22,7 +25,11 @@ import com.dreamlock.core.game.models.Room;
 import com.dreamlock.core.handlers.CommandHandler;
 import com.dreamlock.core.handlers.ErrorHandler;
 import com.dreamlock.core.handlers.IHandler;
-import com.dreamlock.core.messageSystem.*;
+import com.dreamlock.core.messageSystem.AndroidMessageHandler;
+import com.dreamlock.core.messageSystem.GameMessages;
+import com.dreamlock.core.messageSystem.IMessageHandler;
+import com.dreamlock.core.messageSystem.constants.AndroidCommandMessages;
+import com.dreamlock.core.messageSystem.constants.ICommandMessages;
 import com.dreamlock.core.parser.Lexer;
 import com.dreamlock.core.parser.Parser;
 import com.dreamlock.core.parser.models.Lexeme;
@@ -127,10 +134,10 @@ public class MainActivity extends Activity {
 
         // Setup message handler
         GameMessages gameMessages = new GameMessages(player, rooms);
-        CommandMessages commandMessages = CommandMessages.INSTANCE;
-        messageHandler = new AndroidMessageHandler();
-        messageHandler.register(gameMessages.getGameMessages());
-        messageHandler.register(commandMessages.getCommandMessages());
+        AndroidCommandMessages commandMessages = AndroidCommandMessages.INSTANCE;
+        messageHandler = new AndroidMessageHandler(getApplicationContext());
+//        messageHandler.registerAndroid(gameMessages.getGameMessages());
+        messageHandler.registerAndroid(commandMessages.getCommandMessages());
         gameContext.setMessageHandler(messageHandler);
 
         lexer = new Lexer();

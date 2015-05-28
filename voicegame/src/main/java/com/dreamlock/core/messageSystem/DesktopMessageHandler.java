@@ -1,7 +1,5 @@
 package com.dreamlock.core.messageSystem;
 
-import android.view.View;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +14,11 @@ public class DesktopMessageHandler implements Serializable, IMessageHandler{
 
     public void register(Map<Integer, IMessage> messages) {
         this.messages.putAll(messages);
+    }
+
+    @Override
+    public void registerAndroid(Map<Integer, ISoundMessage> messages) {
+
     }
 
     public void registerString(String string, int id) {

@@ -1,7 +1,7 @@
 package com.dreamlock.core.handlers;
 
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.messageSystem.UserQuestions;
+import com.dreamlock.core.messageSystem.constants.UserQuestions;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;

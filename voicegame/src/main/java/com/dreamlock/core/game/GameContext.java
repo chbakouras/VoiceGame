@@ -4,7 +4,6 @@ import com.dreamlock.core.game.combat.TurnBattle;
 import com.dreamlock.core.game.models.History;
 import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Room;
-import com.dreamlock.core.messageSystem.DesktopMessageHandler;
 import com.dreamlock.core.messageSystem.IMessageHandler;
 
 import java.io.Serializable;

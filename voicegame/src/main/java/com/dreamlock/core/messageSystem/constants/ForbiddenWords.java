@@ -1,4 +1,4 @@
-package com.dreamlock.core.messageSystem;
+package com.dreamlock.core.messageSystem.constants;
 
 public enum ForbiddenWords {
 

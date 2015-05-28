@@ -2,7 +2,7 @@ package com.dreamlock.core.messageSystem;
 
 import java.io.Serializable;
 
-public class NDMessage implements Serializable, IMessage{
+public class NDMessage implements Serializable, IStringMessage {
     private String name;
     private String description;
 

@@ -1,6 +1,8 @@
 package com.dreamlock.core.messageSystem;
 
-import android.view.View;
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -8,20 +10,49 @@ import java.util.List;
 import java.util.Map;
 
 public class AndroidMessageHandler implements Serializable, IMessageHandler{
-    private Map<Integer, IMessage> messages;
+    private Map<Integer, ISoundMessage> messages;
+    private Context context;
+    MediaPlayer m = new MediaPlayer();
 
-    public AndroidMessageHandler() {
+    public AndroidMessageHandler(Context context) {
+        this.context = context;
         messages = new HashMap<>();
+    }
+
+    public void playSound (String filePath)
+    {
+        try {
+        if (m.isPlaying()) {
+            m.stop();
+            m.release();
+            m = new MediaPlayer();
+        }
+
+        AssetFileDescriptor descriptor = context.getAssets().openFd(filePath);
+        m.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
+        descriptor.close();
+
+        m.prepare();
+        m.setVolume(1f, 1f);
+        m.setLooping(false);
+        m.start();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @Override
     public void register(Map<Integer, IMessage> messages) {
+    }
+
+    @Override
+    public void registerAndroid(Map<Integer, ISoundMessage> messages) {
         this.messages.putAll(messages);
     }
 
     @Override
     public void registerString(String string, int id) {
-        IMessage message = new NDMessage(string, "");
+        ISoundMessage message = new SoundNDMessage(string, "", "", "");
         this.messages.put(id, message);
     }
 
@@ -33,6 +64,7 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
     @Override
     public String printAndroid(List<Integer> messageIds) {
         StringBuilder stringBuilder = new StringBuilder();
+
         if (messageIds.contains(10000)) {
             messageIds.add(10002);
             messageIds.add(10002);
@@ -85,10 +117,14 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
             }
         }
         else {
+
             messageIds.add(10003);
             messageIds.add(10003);
             for (Integer messageId : messageIds) {
                 if (!messages.get(messageId).getName().equals("")) {
+                    if (!messages.get(messageId).getNamePath().equals("")) {
+                        playSound(messages.get(messageId).getNamePath());
+                    }
                     stringBuilder.append(messages.get(messageId).getName());
                 }
                 if (!messages.get(messageId).getDescription().equals("")) {

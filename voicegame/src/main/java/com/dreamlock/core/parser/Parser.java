@@ -1,7 +1,7 @@
 package com.dreamlock.core.parser;
 
-import com.dreamlock.core.messageSystem.ForbiddenWords;
-import com.dreamlock.core.messageSystem.UserQuestions;
+import com.dreamlock.core.messageSystem.constants.ForbiddenWords;
+import com.dreamlock.core.messageSystem.constants.UserQuestions;
 import com.dreamlock.core.parser.constants.Rules;
 import com.dreamlock.core.parser.constants.TokenType;
 import com.dreamlock.core.parser.models.Lexeme;

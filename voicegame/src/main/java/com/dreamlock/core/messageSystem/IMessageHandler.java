@@ -6,6 +6,8 @@ import java.util.Map;
 public interface IMessageHandler {
     void register(Map<Integer, IMessage> messages);
 
+    void registerAndroid(Map<Integer, ISoundMessage> messages);
+
     void registerString(String string, int id);
 
     void print(List<Integer> messageIds);
