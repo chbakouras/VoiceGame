@@ -95,14 +95,10 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
             }
         }
         else {
-
             messageIds.add(10003);
             messageIds.add(10003);
             for (Integer messageId : messageIds) {
                 if (!messages.get(messageId).getName().equals("")) {
-                    if (!messages.get(messageId).getNamePath().equals("")) {
-                        soundPlayer.play(messages.get(messageId).getNamePath());
-                    }
                     stringBuilder.append(messages.get(messageId).getName());
                 }
                 if (!messages.get(messageId).getDescription().equals("")) {
@@ -121,5 +117,10 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
             return true;
 
         return false;
+    }
+
+    @Override
+    public Map<Integer, ISoundMessage> getMessages() {
+        return messages;
     }
 }

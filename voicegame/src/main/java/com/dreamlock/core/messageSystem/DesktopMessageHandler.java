@@ -101,6 +101,11 @@ public class DesktopMessageHandler implements Serializable, IMessageHandler{
         return null;
     }
 
+    @Override
+    public Map<Integer, ISoundMessage> getMessages() {
+        return null;
+    }
+
     private boolean asItself(List<Integer> messageIds, int i, int messageId){
         int next_message_id_idx = i+1;
         if(next_message_id_idx < messageIds.size() && messageIds.contains(1301) && messageIds.get(next_message_id_idx) == 1309)

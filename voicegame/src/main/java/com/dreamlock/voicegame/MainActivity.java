@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
         outputTextView.setText(opening[0]);
-        soundPlayer.play(opening[1]);
+        soundPlayer.playFile(opening[1]);
 
         nameInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
     private void startGame() throws IOException {
         String name = nameInputEditText.getText().toString();
         outputTextView.setText(name + opening[2]);
-        soundPlayer.play(opening[3]);
+        soundPlayer.playFile(opening[3]);
         nameInputEditText.setVisibility(View.GONE);
 
         GameUtils gameUtils = new GameUtils();
@@ -228,6 +228,7 @@ public class MainActivity extends Activity {
                         ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                         JsonObject output = parser.parse(lexemes);
 
+
                         List<Integer> messageIds = null;
                         IHandler handler;
                         if (!output.get("error").getAsBoolean()) {
@@ -237,6 +238,8 @@ public class MainActivity extends Activity {
                                 textMatchTextView.setVisibility(View.VISIBLE);
                                 textMatchTextView.setText(line);
                                 outputTextView.setText(messageHandler.printAndroid(messageIds));
+                                soundPlayer = new SoundPlayer(getApplicationContext(), messageHandler.getMessages());
+                                soundPlayer.play(messageIds);
                             }
                             handler = new CommandHandler(output, gameContext);
                         } else {

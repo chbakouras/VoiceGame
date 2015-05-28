@@ -16,4 +16,6 @@ public interface IMessageHandler {
     void print(List<Integer> messageIds);
 
     String printAndroid(List<Integer> messageIds);
+
+    Map<Integer, ISoundMessage> getMessages();
 }
