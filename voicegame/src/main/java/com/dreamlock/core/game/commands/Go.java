@@ -36,6 +36,12 @@ public class Go implements ICommand {
         if(gameContext.getTurnBattle() == null || !gameContext.getTurnBattle().activeBattle()) {
             if (!nextRoom.getDescription().equals("wall") && !isLocked) { //If wall
 
+                if (nextRoom.isHasBeenVisited()) {
+                    output.add(10000);
+                }
+
+                currentRoom.setHasBeenVisited(true);
+
                 gameContext.setCurrentRoom(nextRoom);
                 output.add(nextRoom.getId());
                 return output;

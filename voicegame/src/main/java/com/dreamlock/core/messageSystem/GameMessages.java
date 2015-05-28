@@ -56,7 +56,7 @@ public class GameMessages {
 
             }
             for(Door door: room.getDoors()){
-                gameMessages.put(door.getId(), new SoundNDMessage(door.getName(), door.getDescription(), door.getNamePath(), ""));
+                gameMessages.put(door.getId(), new SoundNDMessage(door.getName(), door.getDescription(), "", ""));
             }
             gameMessages.put(player.getId(), new SoundNDSMessage(player.getName(), "", player.getPlayerStatsMap()));
         }

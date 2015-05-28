@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Door implements Serializable{
     private String name;
-    private String namePath;
     private String direction;
     private String description;
     private String type;
@@ -12,22 +11,13 @@ public class Door implements Serializable{
     private int requiredKey;
     private boolean locked;
 
-    public Door(String name, String namePath, String direction, int id, int requiredKey) {
+    public Door(String name, String direction, int id, int requiredKey) {
         this.name = name;
-        this.namePath = namePath;
         this.direction = direction;
         this.id = id;
         this.locked = true;
         this.requiredKey = requiredKey;
         this.description = (direction + "ern" + " " + name.toLowerCase());
-    }
-
-    public String getNamePath() {
-        return namePath;
-    }
-
-    public void setNamePath(String namePath) {
-        this.namePath = namePath;
     }
 
     public void setLocked(boolean locked) {

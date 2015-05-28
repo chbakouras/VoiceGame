@@ -1,5 +1,7 @@
 {
   "id":2,
   "title": "Kitchen",
-  "description": "Spicy smells permeate the kitchen, hinting at its frequent use.\nNo fire burns in the oven at this hour, nor is there any sign of the cook."
+  "description": "Spicy smells permeate the kitchen, hinting at its frequent use.\nNo fire burns in the oven at this hour, nor is there any sign of the cook.",
+  "descriptionPath":"sounds/rooms/Kitchen/kitchen_description.ogg",
+  "titlePath":"sounds/rooms/Kitchen/kitchen_title.ogg"
 }

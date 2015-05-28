@@ -1,5 +1,7 @@
 {
   "id":17,
   "title": "Labyrinthian Hall",
-  "description": "A huge hall spans before you - An altar is sitting elevated in the very center."
+  "description": "A huge hall spans before you - An altar is sitting elevated in the very center.",
+  "descriptionPath":"sounds/rooms/Labyrinth Main Hall/labyrinth_main_hall_description.ogg",
+  "titlePath":"sounds/rooms/Labyrinth Main Hall/labyrinth_main_hall_title.ogg"
 }

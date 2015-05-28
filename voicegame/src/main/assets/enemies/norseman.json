@@ -1,6 +1,7 @@
 {
   "id":"51",
   "name":"True Norseman",
+  "namePath":"",
   "description":"A majestic beard. Flowing red hair. Muscles that burst from his leather armor. A huge battle axe.",
   "health":5000,
   "attack":15,

@@ -1,5 +1,7 @@
 {
   "id":6,
   "title": "Bath",
-  "description": "A spacious bath, nothing much of notice here except a small table lined with toiletries."
+  "description": "A spacious bath, nothing much of notice here except a small table lined with toiletries.",
+  "descriptionPath":"sounds/rooms/Bath/bath_description.ogg",
+  "titlePath":"sounds/rooms/Bath/bath_title.ogg"
 }

@@ -1,0 +1,9 @@
+{
+  "id":"55",
+  "name":"True Java Rockstar",
+  "namePath":"",
+  "description":"A complete geek. Typing like a maniac, and creating many evil Singletons. You should stop him at once, 'cause he's gonna throw a lot of exceptions at you.",
+  "health":5000,
+  "attack":15,
+  "defense":100
+}

@@ -2,9 +2,13 @@ package com.dreamlock.core.messageSystem;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Environment;
 import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
 
+import java.io.*;
 import java.util.*;
 
 public class SoundPlayer {
@@ -12,52 +16,79 @@ public class SoundPlayer {
     private Context context;
     private List<String> playList;
     private int trackCounter;
+    private int maxMessages;
+    SoundPool soundPool;
     Map<Integer, ISoundMessage> messages;
 
     public SoundPlayer(Context context) {
+        soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 100);
         this.mediaPlayer = new MediaPlayer();
+        playList = new ArrayList<>();
         this.context = context;
         trackCounter = 0;
     }
 
     public SoundPlayer(Context applicationContext, Map<Integer, ISoundMessage> messages) {
+        soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 100);
+        this.mediaPlayer = new MediaPlayer();
         this.context = applicationContext;
+        playList = new ArrayList<>();
         this.messages = messages;
         trackCounter = 0;
     }
 
-    public void play(List<Integer> messageIds) {
+    public void play(List<Integer> messageIds) throws IOException {
         buildPlaylist(messageIds);
+        maxMessages = playList.size();
 
         playFile();
 
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                playFile();
-            }
-        });
 
     }
 
     private void playFile() {
-        try {
-            AssetFileDescriptor descriptor = context.getAssets().openFd(playList.get(trackCounter));
-            mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
-            descriptor.close();
+        if (trackCounter < maxMessages) {
+            try {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                    mediaPlayer = new MediaPlayer();
+                }
+                AssetFileDescriptor descriptor = context.getAssets().openFd(playList.get(trackCounter));
+                mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
+                descriptor.close();
 
-            mediaPlayer.prepare();
-            mediaPlayer.setVolume(1f, 1f);
-            mediaPlayer.setLooping(false);
-            mediaPlayer.start();
-            trackCounter++;
-        } catch (Exception e) {
-            e.printStackTrace();
+                trackCounter++;
+
+                if (trackCounter < maxMessages) {
+                    AssetFileDescriptor descriptor2 = context.getAssets().openFd(playList.get(trackCounter));
+                    MediaPlayer mediaPlayer1 = new MediaPlayer();
+                    mediaPlayer1.setDataSource(descriptor2.getFileDescriptor(), descriptor2.getStartOffset(), descriptor2.getLength());
+                    mediaPlayer1.prepare();
+                    mediaPlayer1.setVolume(1f, 1f);
+                    mediaPlayer1.setLooping(false);
+//                    mediaPlayer1.start();
+                    mediaPlayer.setNextMediaPlayer(mediaPlayer1);
+                }
+
+                mediaPlayer.prepare();
+                mediaPlayer.setVolume(1f, 1f);
+                mediaPlayer.setLooping(false);
+                mediaPlayer.start();
+                trackCounter++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void playFile(String path) {
         try {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = new MediaPlayer();
+            }
             AssetFileDescriptor descriptor = context.getAssets().openFd(path);
             mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
             descriptor.close();
@@ -76,14 +107,16 @@ public class SoundPlayer {
             for (int i = 0 ; i < messageIds.size() ; i++) {
                 int messageId = messageIds.get(i);
 
-                if(!asItself(messageIds,i,messageId)) {
+                if((!asItself(messageIds,i,messageId))&& !messages.get(messageId).getNamePath().equals("")) {
                     playList.add(messages.get(messageId).getNamePath());
                 }
             }
         }
         else if (messageIds.contains(10001)) {
             for (Integer messageId : messageIds) {
-                playList.add(messages.get(messageId).getDescriptionPath());
+                if (!messages.get(messageId).getDescriptionPath().equals("")) {
+                    playList.add(messages.get(messageId).getDescriptionPath());
+                }
             }
         }
         else if (messageIds.contains(10004)) {
@@ -106,10 +139,7 @@ public class SoundPlayer {
         else {
             for (Integer messageId : messageIds) {
                 if (!messages.get(messageId).getNamePath().equals("")) {
-                    if (!messages.get(messageId).getNamePath().equals("")) {
-
-                        playList.add(messages.get(messageId).getNamePath());
-                    }
+                    playList.add(messages.get(messageId).getNamePath());
                 }
                 if (!messages.get(messageId).getDescriptionPath().equals("")) {
                     playList.add(messages.get(messageId).getDescriptionPath());
@@ -127,5 +157,7 @@ public class SoundPlayer {
         return false;
     }
 
-
+    public void stop() {
+        this.mediaPlayer.stop();
+    }
 }

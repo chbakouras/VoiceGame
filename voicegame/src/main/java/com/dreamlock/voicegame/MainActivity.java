@@ -129,6 +129,8 @@ public class MainActivity extends Activity {
     private void startGame() throws IOException {
         String name = nameInputEditText.getText().toString();
         outputTextView.setText(name + opening[2]);
+        soundPlayer.stop();
+        soundPlayer = new SoundPlayer(getApplicationContext());
         soundPlayer.playFile(opening[3]);
         nameInputEditText.setVisibility(View.GONE);
 
@@ -239,7 +241,11 @@ public class MainActivity extends Activity {
                                 textMatchTextView.setText(line);
                                 outputTextView.setText(messageHandler.printAndroid(messageIds));
                                 soundPlayer = new SoundPlayer(getApplicationContext(), messageHandler.getMessages());
-                                soundPlayer.play(messageIds);
+                                try {
+                                    soundPlayer.play(messageIds);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
                             handler = new CommandHandler(output, gameContext);
                         } else {
@@ -250,7 +256,12 @@ public class MainActivity extends Activity {
                         textMatchTextView.setVisibility(View.VISIBLE);
                         textMatchTextView.setText(line);
                         outputTextView.setText(messageHandler.printAndroid(messageIds));
-
+                        soundPlayer = new SoundPlayer(getApplicationContext(), messageHandler.getMessages());
+                        try {
+                            soundPlayer.play(messageIds);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                 }

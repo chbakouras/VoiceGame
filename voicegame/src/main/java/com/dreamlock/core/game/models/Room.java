@@ -21,6 +21,9 @@ public class Room implements Serializable{
     private List<Item> items;
     private int id;
     private List<Enemy> enemies;
+
+    boolean visited;
+
     /**
      * Constructor for <b>empty rooms</b>.
      */
@@ -42,6 +45,7 @@ public class Room implements Serializable{
         this.doors = new ArrayList();
         this.items = new ArrayList<>();
         this.enemies = new ArrayList<>();
+        this.visited = false;
     }
 
     public String getDescription() {
@@ -201,4 +205,11 @@ public class Room implements Serializable{
         return count;
     }
 
+    public boolean isHasBeenVisited() {
+        return visited;
+    }
+
+    public void setHasBeenVisited(boolean hasBeenVisited) {
+        this.visited = hasBeenVisited;
+    }
 }

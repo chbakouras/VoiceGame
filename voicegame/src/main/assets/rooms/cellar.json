@@ -1,5 +1,7 @@
 {
   "id":13,
   "title": "Wine Cellar",
-  "description": "A chilly place underground to keep wine and foodstuffs. \n It seems mostly empty thought your eyes catch sight of something moving through the darkness."
+  "description": "A chilly place underground to keep wine and foodstuffs. \n It seems mostly empty thought your eyes catch sight of something moving through the darkness.",
+  "descriptionPath":"sounds/rooms/Cellar/cellar_description.ogg",
+  "titlePath":"sounds/rooms/Cellar/cellar_title.ogg"
 }

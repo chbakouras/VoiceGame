@@ -1,5 +1,7 @@
 {
   "id":15,
   "title": "Labyrinthian Corridor",
-  "description": "The corridor continues on into the darkness, then splits into two pathways."
+  "description": "The corridor continues on into the darkness, then splits into two pathways.",
+  "descriptionPath":"sounds/rooms/Labyrinth Corridor/labyrinth_corridor_description.ogg",
+  "titlePath":"sounds/rooms/Labyrinth Corridor/labyrinth_corridor_title.ogg"
 }

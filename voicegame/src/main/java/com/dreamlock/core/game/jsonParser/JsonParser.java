@@ -225,13 +225,12 @@ public class JsonParser {
             JsonObject jsonDoorObject = doorElement.getAsJsonObject();
 
             String name = jsonDoorObject.get("name").getAsString();
-            String namePath = jsonDoorObject.get("namePath").getAsString();
             String direction = doorDTO.getDirection();
             Integer key = jsonDoorObject.get("key").getAsInt();
             Integer id = jsonDoorObject.get("id").getAsInt();
 
 
-            Door door = new Door(name, namePath, direction, id, key);
+            Door door = new Door(name, direction, id, key);
 
             doors.add(door);
         }

@@ -2,7 +2,6 @@ package com.dreamlock.core.game.jsonParser.DTOs;
 
 public class DoorDTO {
     private String name;
-    private String namePath;
     private String direction;
     private String path;
     private int id;

@@ -1,5 +1,7 @@
 {
   "id":8,
   "title": "Hidden Archive",
-  "description": "A hidden alcove that appeared after you set a mechanism in the Study in motion.\n What could you possibly find in here?"
+  "description": "A hidden alcove that appeared after you set a mechanism in the Study in motion.\n What could you possibly find in here?",
+  "descriptionPath":"sounds/rooms/Hidden Archive/hidden_archive_description.ogg",
+  "titlePath":"sounds/rooms/Hidden Archive/hidden_archive_title.ogg"
 }

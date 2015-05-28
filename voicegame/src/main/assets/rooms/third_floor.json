@@ -1,5 +1,7 @@
 {
   "id":11,
   "title": "Uppper Floor",
-  "description": "The third floor. The bedrooms are situated on this floor. There are several doors leading to different rooms."
+  "description": "The third floor. The bedrooms are situated on this floor. There are several doors leading to different rooms.",
+  "descriptionPath":"sounds/rooms/Third Floor/third_floor_description.ogg",
+  "titlePath":"sounds/rooms/Third Floor/third_floor_title.ogg"
 }
