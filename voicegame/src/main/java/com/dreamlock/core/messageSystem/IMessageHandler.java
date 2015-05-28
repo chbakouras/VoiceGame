@@ -1,5 +1,8 @@
 package com.dreamlock.core.messageSystem;
 
+import com.dreamlock.core.messageSystem.messages.IMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
+
 import java.util.List;
 import java.util.Map;
 

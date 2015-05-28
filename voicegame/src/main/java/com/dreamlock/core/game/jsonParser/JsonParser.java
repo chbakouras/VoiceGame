@@ -71,7 +71,9 @@ public class JsonParser {
             JsonObject jsonRoomObj = roomElement.getAsJsonObject();
 
             room.setDescription(jsonRoomObj.get("description").getAsString());
+            room.setDescriptionPath(jsonRoomObj.get("descriptionPath").getAsString());
             room.setTitle(jsonRoomObj.get("title").getAsString());
+            room.setTitlePath(jsonRoomObj.get("titlePath").getAsString());
             room.setId(jsonRoomObj.get("id").getAsInt());
 
             List<Door> doors = parseDoors(roomDTO.getDoors());
@@ -100,7 +102,7 @@ public class JsonParser {
         String jsonOpening = read(file);
         OpeningDTO openingDTO = gson.fromJson(jsonOpening, OpeningDTO.class);
 
-        return new String[]{openingDTO.getOpening(),openingDTO.getWelcome()};
+        return new String[]{openingDTO.getOpening(), openingDTO.getOpeningPath(),openingDTO.getWelcome(), openingDTO.getWelcomePath()};
     }
 
     /**
@@ -161,6 +163,7 @@ public class JsonParser {
 
             enemy.setId(jsonEnemyObj.get("id").getAsInt());
             enemy.setName(jsonEnemyObj.get("name").getAsString());
+            enemy.setNamePath(jsonEnemyObj.get("namePath").getAsString());
             enemy.setDescription(jsonEnemyObj.get("description").getAsString());
             enemy.setHealth(jsonEnemyObj.get("health").getAsInt());
             enemy.setAttack(jsonEnemyObj.get("attack").getAsInt());
@@ -222,12 +225,13 @@ public class JsonParser {
             JsonObject jsonDoorObject = doorElement.getAsJsonObject();
 
             String name = jsonDoorObject.get("name").getAsString();
+            String namePath = jsonDoorObject.get("namePath").getAsString();
             String direction = doorDTO.getDirection();
             Integer key = jsonDoorObject.get("key").getAsInt();
             Integer id = jsonDoorObject.get("id").getAsInt();
 
 
-            Door door = new Door(name, direction, id, key);
+            Door door = new Door(name, namePath, direction, id, key);
 
             doors.add(door);
         }

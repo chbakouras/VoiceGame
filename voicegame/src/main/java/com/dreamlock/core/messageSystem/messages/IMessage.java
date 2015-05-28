@@ -1,4 +1,4 @@
-package com.dreamlock.core.messageSystem;
+package com.dreamlock.core.messageSystem.messages;
 
 public interface IMessage {
     String getName();

@@ -12,7 +12,9 @@ import java.util.List;
  */
 public class Room implements Serializable{
     private String description;
+    private String descriptionPath;
     private String title;
+    private String titlePath;
     private HashMap<String, Room> exits;  // stores the exits of this room.
     private List<Door> doors;  // stores the doors of this room.
 
@@ -101,6 +103,22 @@ public class Room implements Serializable{
 
     public List<Enemy> getEnemies(){
         return enemies;
+    }
+
+    public String getDescriptionPath() {
+        return descriptionPath;
+    }
+
+    public void setDescriptionPath(String descriptionPath) {
+        this.descriptionPath = descriptionPath;
+    }
+
+    public String getTitlePath() {
+        return titlePath;
+    }
+
+    public void setTitlePath(String titlePath) {
+        this.titlePath = titlePath;
     }
 
     public void setEnemies(List<Enemy> enemies){

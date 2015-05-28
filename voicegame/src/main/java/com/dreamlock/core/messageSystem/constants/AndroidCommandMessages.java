@@ -1,9 +1,9 @@
 package com.dreamlock.core.messageSystem.constants;
 
 
-import com.dreamlock.core.messageSystem.ISoundMessage;
-import com.dreamlock.core.messageSystem.SoundNDEMessage;
-import com.dreamlock.core.messageSystem.SoundNDMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDEMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDMessage;
 
 import java.util.HashMap;
 import java.util.Map;

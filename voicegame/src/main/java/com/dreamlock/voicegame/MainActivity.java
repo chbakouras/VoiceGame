@@ -28,6 +28,7 @@ import com.dreamlock.core.handlers.IHandler;
 import com.dreamlock.core.messageSystem.AndroidMessageHandler;
 import com.dreamlock.core.messageSystem.GameMessages;
 import com.dreamlock.core.messageSystem.IMessageHandler;
+import com.dreamlock.core.messageSystem.SoundPlayer;
 import com.dreamlock.core.messageSystem.constants.AndroidCommandMessages;
 import com.dreamlock.core.messageSystem.constants.ICommandMessages;
 import com.dreamlock.core.parser.Lexer;
@@ -61,6 +62,8 @@ public class MainActivity extends Activity {
     IGameContext gameContext;
     Player player;
 
+    SoundPlayer soundPlayer;
+
     String openingFile = "openings/dreamlock_opening.json";
 
     @Override
@@ -82,6 +85,8 @@ public class MainActivity extends Activity {
         textMatchTextView.setVisibility(View.INVISIBLE);
         speakButton.setVisibility(View.INVISIBLE);
 
+        soundPlayer = new SoundPlayer(getApplicationContext());
+
         checkVoiceRecognition();
     }
 
@@ -102,6 +107,7 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
         outputTextView.setText(opening[0]);
+        soundPlayer.play(opening[1]);
 
         nameInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -122,7 +128,8 @@ public class MainActivity extends Activity {
 
     private void startGame() throws IOException {
         String name = nameInputEditText.getText().toString();
-        outputTextView.setText(name + opening[1]);
+        outputTextView.setText(name + opening[2]);
+        soundPlayer.play(opening[3]);
         nameInputEditText.setVisibility(View.GONE);
 
         GameUtils gameUtils = new GameUtils();
@@ -136,7 +143,7 @@ public class MainActivity extends Activity {
         GameMessages gameMessages = new GameMessages(player, rooms);
         AndroidCommandMessages commandMessages = AndroidCommandMessages.INSTANCE;
         messageHandler = new AndroidMessageHandler(getApplicationContext());
-//        messageHandler.registerAndroid(gameMessages.getGameMessages());
+        messageHandler.registerAndroid(gameMessages.getGameMessages());
         messageHandler.registerAndroid(commandMessages.getCommandMessages());
         gameContext.setMessageHandler(messageHandler);
 

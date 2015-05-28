@@ -7,6 +7,7 @@ public class ConsumableDTO {
     private String name;
     private String description;
     private String effect;
+    private String effectPath;
     private int healthStat;
     private int staminaStat;
     private int strengthStat;
@@ -50,5 +51,9 @@ public class ConsumableDTO {
 
     public int getAgilityStat() {
         return agilityStat;
+    }
+
+    public String getEffectPath() {
+        return effectPath;
     }
 }

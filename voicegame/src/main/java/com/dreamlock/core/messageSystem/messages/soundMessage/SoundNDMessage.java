@@ -1,8 +1,8 @@
-package com.dreamlock.core.messageSystem;
+package com.dreamlock.core.messageSystem.messages.soundMessage;
 
 import java.io.Serializable;
 
-public class SoundNDMessage implements Serializable, ISoundMessage{
+public class SoundNDMessage implements Serializable, ISoundMessage {
     private String name;
     private String description;
     private String namePath;

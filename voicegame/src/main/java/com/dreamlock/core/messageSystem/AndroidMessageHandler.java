@@ -1,8 +1,9 @@
 package com.dreamlock.core.messageSystem;
 
 import android.content.Context;
-import android.content.res.AssetFileDescriptor;
-import android.media.MediaPlayer;
+import com.dreamlock.core.messageSystem.messages.IMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDMessage;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,34 +12,11 @@ import java.util.Map;
 
 public class AndroidMessageHandler implements Serializable, IMessageHandler{
     private Map<Integer, ISoundMessage> messages;
-    private Context context;
-    MediaPlayer m = new MediaPlayer();
+    private SoundPlayer soundPlayer;
 
     public AndroidMessageHandler(Context context) {
-        this.context = context;
+        soundPlayer = new SoundPlayer(context);
         messages = new HashMap<>();
-    }
-
-    public void playSound (String filePath)
-    {
-        try {
-        if (m.isPlaying()) {
-            m.stop();
-            m.release();
-            m = new MediaPlayer();
-        }
-
-        AssetFileDescriptor descriptor = context.getAssets().openFd(filePath);
-        m.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
-        descriptor.close();
-
-        m.prepare();
-        m.setVolume(1f, 1f);
-        m.setLooping(false);
-        m.start();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
     }
 
     @Override
@@ -123,7 +101,7 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
             for (Integer messageId : messageIds) {
                 if (!messages.get(messageId).getName().equals("")) {
                     if (!messages.get(messageId).getNamePath().equals("")) {
-                        playSound(messages.get(messageId).getNamePath());
+                        soundPlayer.play(messages.get(messageId).getNamePath());
                     }
                     stringBuilder.append(messages.get(messageId).getName());
                 }

@@ -1,4 +1,6 @@
-package com.dreamlock.core.messageSystem;
+package com.dreamlock.core.messageSystem.messages.soundMessage;
+
+import com.dreamlock.core.messageSystem.messages.IMessage;
 
 public interface ISoundMessage extends IMessage {
     String getNamePath();

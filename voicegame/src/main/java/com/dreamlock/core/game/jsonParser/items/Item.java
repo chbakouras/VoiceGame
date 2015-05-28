@@ -14,6 +14,7 @@ public abstract class Item implements Serializable{
     protected String name;
     protected String description;
     protected String type;
+    protected String effectPath;
 
     protected Map<ActionState,IState> states;
     protected Map<Stats, Object> stats;

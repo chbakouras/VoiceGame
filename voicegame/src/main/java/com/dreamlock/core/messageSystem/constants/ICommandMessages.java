@@ -1,6 +1,6 @@
 package com.dreamlock.core.messageSystem.constants;
 
-import com.dreamlock.core.messageSystem.IMessage;
+import com.dreamlock.core.messageSystem.messages.IMessage;
 
 import java.util.Map;
 import java.util.Set;

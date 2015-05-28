@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 public class Consumable extends Item {
     private String effect;
+    private String effectPath;
     private String state;
 
     public Consumable(String jsonItem) {
@@ -21,6 +22,7 @@ public class Consumable extends Item {
         name = consumableDTO.getName();
         description = consumableDTO.getDescription();
         effect = consumableDTO.getEffect();
+        effectPath = consumableDTO.getEffectPath();
 
         // Set Stats
         stats = new HashMap<>();
@@ -58,5 +60,9 @@ public class Consumable extends Item {
 
     public void setEffect(String effect) {
         this.effect = effect;
+    }
+
+    public String getEffectPath() {
+        return effectPath;
     }
 }

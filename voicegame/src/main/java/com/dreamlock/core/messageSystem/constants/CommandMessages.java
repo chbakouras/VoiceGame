@@ -1,9 +1,9 @@
 package com.dreamlock.core.messageSystem.constants;
 
-import com.dreamlock.core.messageSystem.IMessage;
-import com.dreamlock.core.messageSystem.NDEMessage;
-import com.dreamlock.core.messageSystem.NDMessage;
-import com.dreamlock.core.messageSystem.NDSMessage;
+import com.dreamlock.core.messageSystem.messages.IMessage;
+import com.dreamlock.core.messageSystem.messages.stringMessage.NDEMessage;
+import com.dreamlock.core.messageSystem.messages.stringMessage.NDMessage;
+import com.dreamlock.core.messageSystem.messages.stringMessage.NDSMessage;
 
 import java.util.HashMap;
 import java.util.Map;

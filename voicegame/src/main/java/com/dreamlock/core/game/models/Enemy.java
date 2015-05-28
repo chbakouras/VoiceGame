@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 public class Enemy extends Combatant implements Serializable{
     private int id;
+    private String namePath;
     private String description;
 
     public Enemy(){
@@ -46,5 +47,13 @@ public class Enemy extends Combatant implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getNamePath() {
+        return namePath;
+    }
+
+    public void setNamePath(String namePath) {
+        this.namePath = namePath;
     }
 }
