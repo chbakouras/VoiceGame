@@ -14,10 +14,12 @@ public class TurnBattle implements Serializable{
     private List<Combatant> characters;
     private int currentChar;
     protected boolean inCombat;
+    private boolean effect;
 
     public TurnBattle(IGameContext gameContext, Room room){
         characters = new ArrayList<>();
         inCombat = false;
+        effect = false;
         currentChar = 0; // player first
         characters.add(gameContext.getPlayer());
         characters.addAll(room.getEnemies());
@@ -25,6 +27,11 @@ public class TurnBattle implements Serializable{
 
     public List<Integer> executeTurn(IGameContext gameContext){
         List<Integer> output = new ArrayList<>();
+
+        if (effect) {
+            output.add(10006);
+        }
+        effect = false;
 
         if(currentChar != 0){
             characters.get(0).getStates().get(ActionState.ATTACK).doAction(gameContext, characters.get(currentChar) , characters.get(0));
@@ -47,10 +54,12 @@ public class TurnBattle implements Serializable{
     public List<Integer> nextTurn(IGameContext gameContext){
         if(enemiesAlive() && currentChar != characters.size()-1) {
             currentChar++;
-            while(!characters.get(currentChar).isAlive() && currentChar !=characters.size()-1)
+            while(!characters.get(currentChar).isAlive() && currentChar !=characters.size()-1) {
                 currentChar++;
-            if (characters.get(currentChar).isAlive())
+            }
+            if (characters.get(currentChar).isAlive()) {
                 return executeTurn(gameContext);
+            }
         }
 
 
@@ -60,6 +69,7 @@ public class TurnBattle implements Serializable{
     }
     public void letTheBattleBegin(){
         inCombat = true;
+        effect = true;
     }
 
     public boolean activeBattle(){

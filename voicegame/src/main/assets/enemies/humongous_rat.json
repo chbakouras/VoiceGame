@@ -3,6 +3,8 @@
   "name":"Humongous Rat",
   "namePath":"",
   "description":"A huge rat with decaying skin and white, diseased eyes.",
+  "descriptionPath":"",
+  "effectPath":"",
   "health":30,
   "attack":7,
   "defense":5

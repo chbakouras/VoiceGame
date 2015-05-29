@@ -5,6 +5,9 @@ public class EnemyDTO {
     private String path;
     private String name;
     private String description;
+    private String namePath;
+    private String descriptionPath;
+    private String effectPath;
     private int health;
     private int attack;
     private int defense;
@@ -55,5 +58,30 @@ public class EnemyDTO {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+
+    public String getNamePath() {
+        return namePath;
+    }
+
+    public void setNamePath(String namePath) {
+        this.namePath = namePath;
+    }
+
+    public String getDescriptionPath() {
+        return descriptionPath;
+    }
+
+    public void setDescriptionPath(String descriptionPath) {
+        this.descriptionPath = descriptionPath;
+    }
+
+    public String getEffectPath() {
+        return effectPath;
+    }
+
+    public void setEffectPath(String effectPath) {
+        this.effectPath = effectPath;
     }
 }

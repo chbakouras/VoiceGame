@@ -164,6 +164,8 @@ public class JsonParser {
             enemy.setId(jsonEnemyObj.get("id").getAsInt());
             enemy.setName(jsonEnemyObj.get("name").getAsString());
             enemy.setNamePath(jsonEnemyObj.get("namePath").getAsString());
+            enemy.setDescriptionPath(jsonEnemyObj.get("descriptionPath").getAsString());
+            enemy.setEffectPath(jsonEnemyObj.get("effectPath").getAsString());
             enemy.setDescription(jsonEnemyObj.get("description").getAsString());
             enemy.setHealth(jsonEnemyObj.get("health").getAsInt());
             enemy.setAttack(jsonEnemyObj.get("attack").getAsInt());

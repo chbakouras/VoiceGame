@@ -52,7 +52,7 @@ public class GameMessages {
                 }
             }
             for(Enemy enemy: room.getEnemies()){
-                gameMessages.put(enemy.getId(), new SoundNDMessage(enemy.getName(), enemy.getDescription(),enemy.getNamePath(), ""));
+                gameMessages.put(enemy.getId(), new SoundNDEMessage(enemy.getName(), enemy.getDescription(), "", enemy.getNamePath(), enemy.getDescriptionPath(), enemy.getEffectPath()));
 
             }
             for(Door door: room.getDoors()){

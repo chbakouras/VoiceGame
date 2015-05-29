@@ -3,6 +3,8 @@
   "name":"Chef",
   "namePath":"",
   "description":"A man in a torn apron wielding a huge... Ladle?",
+  "descriptionPath":"",
+  "effectPath":"sounds/enemies/description/chef_effect.ogg",
   "health":10,
   "attack":3,
   "defense":1

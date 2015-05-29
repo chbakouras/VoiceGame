@@ -3,6 +3,8 @@
   "name":"True Norseman",
   "namePath":"",
   "description":"A majestic beard. Flowing red hair. Muscles that burst from his leather armor. A huge battle axe.",
+  "descriptionPath":"",
+  "effectPath":"",
   "health":5000,
   "attack":15,
   "defense":100

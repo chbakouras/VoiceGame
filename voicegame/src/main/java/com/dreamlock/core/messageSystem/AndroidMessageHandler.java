@@ -3,6 +3,7 @@ package com.dreamlock.core.messageSystem;
 import android.content.Context;
 import com.dreamlock.core.messageSystem.messages.IMessage;
 import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDEMessage;
 import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDMessage;
 
 import java.io.Serializable;
@@ -81,8 +82,10 @@ public class AndroidMessageHandler implements Serializable, IMessageHandler{
             messageIds.add(10007);
             messageIds.add(10007);
             for (Integer messageId : messageIds) {
-                if (!messages.get(messageId).getEffect().equals("")) {
-                    stringBuilder.append(messages.get(messageId).getEffect());
+                if (messages.get(messageId) instanceof SoundNDEMessage) {
+                    if (!messages.get(messageId).getEffect().equals("")) {
+                        stringBuilder.append(messages.get(messageId).getEffect());
+                    }
                 }
             }
         }

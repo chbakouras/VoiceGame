@@ -3,6 +3,8 @@
   "name":"Labyrinth Guardian",
   "namePath":"",
   "description":"A strange creatures seemingly made of some unknown material that sucks away the light around it.",
+  "descriptionPath":"",
+  "effectPath":"",
   "health":35,
   "attack":10,
   "defense":8
