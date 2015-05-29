@@ -2,7 +2,7 @@ package com.dreamlock.core.messageSystem.messages.soundMessage;
 
 import java.io.Serializable;
 
-public class SoundNDEMessage implements Serializable, ISoundMessage {
+public class SoundMessage implements Serializable, ISoundMessage {
     private String name;
     private String description;
     private String effect;
@@ -10,7 +10,9 @@ public class SoundNDEMessage implements Serializable, ISoundMessage {
     private String descriptionPath;
     private String effectPath;
 
-    public SoundNDEMessage(String name, String description, String effect, String namePath, String descriptionPath, String effectPath) {
+    private String playerStats ;
+
+    public SoundMessage(String name, String description, String effect, String namePath, String descriptionPath, String effectPath) {
         this.name = name;
         this.description = description;
         this.effect = effect;
@@ -19,13 +21,27 @@ public class SoundNDEMessage implements Serializable, ISoundMessage {
         this.effectPath = effectPath;
     }
 
-    public SoundNDEMessage() {
+    public SoundMessage(String name, String description, String playerStats) {
+        this.name = name;
+        this.description = description;
+        this.playerStats  = playerStats;
+    }
+
+    public SoundMessage(String name, String description, String namePath, String descriptionPath) {
+        this.name = name;
+        this.description = description;
+        this.namePath = namePath;
+        this.descriptionPath = descriptionPath;
+    }
+
+    public SoundMessage() {
         name = "";
         namePath = "";
         description = "";
         descriptionPath = "";
         effect = "";
         effectPath = "";
+        playerStats = "";
     }
 
     @Override
@@ -90,11 +106,11 @@ public class SoundNDEMessage implements Serializable, ISoundMessage {
 
     @Override
     public String getPlayerStats() {
-        return null;
+        return playerStats ;
     }
 
     @Override
     public void setPlayerStats(String playerStats) {
-
+        this.playerStats = playerStats;
     }
 }

@@ -5,9 +5,8 @@ import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.os.Environment;
 import com.dreamlock.core.messageSystem.messages.soundMessage.ISoundMessage;
-import com.dreamlock.core.messageSystem.messages.soundMessage.SoundNDEMessage;
+import com.dreamlock.core.messageSystem.messages.soundMessage.SoundMessage;
 
 import java.io.*;
 import java.util.*;
@@ -132,7 +131,7 @@ public class SoundPlayer {
         }
         else if (messageIds.contains(10006)) {
             for (Integer messageId : messageIds) {
-                if (messages.get(messageId) instanceof SoundNDEMessage) {
+                if (messages.get(messageId) instanceof SoundMessage) {
                     if (!messages.get(messageId).getEffectPath().equals("")) {
                         playList.add(messages.get(messageId).getEffectPath());
                     }
