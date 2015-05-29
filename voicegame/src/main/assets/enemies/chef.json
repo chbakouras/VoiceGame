@@ -1,10 +1,10 @@
 {
   "id":"50",
   "name":"Chef",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/chef_name.ogg",
   "description":"A man in a torn apron wielding a huge... Ladle?",
-  "descriptionPath":"",
-  "effectPath":"sounds/enemies/description/chef_effect.ogg",
+  "descriptionPath":"sounds/enemies/description/chef_description.ogg",
+  "effectPath":"sounds/enemies/effects/chef_effect.ogg",
   "health":10,
   "attack":3,
   "defense":1

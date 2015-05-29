@@ -1,10 +1,10 @@
 {
   "id":"51",
   "name":"True Norseman",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/norseman_name.ogg",
   "description":"A majestic beard. Flowing red hair. Muscles that burst from his leather armor. A huge battle axe.",
-  "descriptionPath":"",
-  "effectPath":"",
+  "descriptionPath":"sounds/enemies/description/norseman_description.ogg",
+  "effectPath":"sounds/enemies/effect/norseman_effect.ogg",
   "health":5000,
   "attack":15,
   "defense":100

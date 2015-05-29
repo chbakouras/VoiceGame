@@ -1,10 +1,10 @@
 {
   "id":"53",
   "name":"Labyrinth Guardian",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/labyrinth_guardian_name.ogg",
   "description":"A strange creatures seemingly made of some unknown material that sucks away the light around it.",
-  "descriptionPath":"",
-  "effectPath":"",
+  "descriptionPath":"sounds/enemies/description/labyrinth_guardian_description.ogg",
+  "effectPath":"sounds/enemies/effect/labyrinth_guardian_effect.ogg",
   "health":35,
   "attack":10,
   "defense":8

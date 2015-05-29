@@ -1,10 +1,10 @@
 {
   "id":"54",
   "name":"Faceless One",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/faceless_one_name.ogg",
   "description":"A creature seemingly made of some black substance, instilling horror into your very being.",
-  "descriptionPath":"",
-  "effectPath":"",
+  "descriptionPath":"sounds/enemies/description/faceless_one_description.ogg",
+  "effectPath":"sounds/enemies/effects/faceless_one_effect.ogg",
   "health":35,
   "attack":10,
   "defense":8

@@ -1,10 +1,10 @@
 {
   "id":"52",
   "name":"Humongous Rat",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/humongous_rat_name.ogg",
   "description":"A huge rat with decaying skin and white, diseased eyes.",
-  "descriptionPath":"",
-  "effectPath":"",
+  "descriptionPath":"sounds/enemies/description/humongous_rat_description.ogg",
+  "effectPath":"sounds/enemies/effect/humongous_rat_effect.ogg",
   "health":30,
   "attack":7,
   "defense":5

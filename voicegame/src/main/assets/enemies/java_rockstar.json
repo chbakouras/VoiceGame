@@ -1,10 +1,10 @@
 {
   "id":"55",
   "name":"True Java Rockstar",
-  "namePath":"",
+  "namePath":"sounds/enemies/name/java_rockstar_name.ogg",
   "description":"A complete geek. Typing like a maniac, and creating many evil Singletons. You should stop him at once, 'cause he's gonna throw a lot of exceptions at you.",
-  "descriptionPath":"",
-  "effectPath":"sounds/",
+  "descriptionPath":"sounds/enemies/description/java_rockstar_description.ogg",
+  "effectPath":"sounds/enemies/effect/java_rockstar_effect.ogg",
   "health":5000,
   "attack":15,
   "defense":100
